@@ -52,8 +52,11 @@ public class FlightService {
      * @return the newly added flight if the add operation was successful, including the flight_id. We do this to
      *         inform our provide the front-end client with information about the added Flight.
      */
+    // addFlight function w/ return type of 'Flight' & argument of Flight 'flight'
     public Flight addFlight(Flight flight){
-        return null;
+        // call on FlightDAO's .insertFlight() method to INSERT (SQL DML) a new row/record into existing 'flight' DB TABLE
+        // return .insertFlight() as it is since return Flight type from that yields the newly INSERT-ed row 
+        return flightDAO.insertFlight(flight);
     }
 
     /**
