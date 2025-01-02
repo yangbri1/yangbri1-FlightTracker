@@ -105,7 +105,8 @@ public class FlightService {
      * @return all flights in the database.
      */
     public List<Flight> getAllFlights() {
-        return null;
+        // call upon flightDAO's .getAllFlight() function to retrieve all flights in TABLE flight
+        return flightDAO.getAllFlights();
     }
 
     /**
