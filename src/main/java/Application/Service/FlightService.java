@@ -70,14 +70,31 @@ public class FlightService {
      *         user should have some insight if they attempted to edit a nonexistent flight.)
      */
     public Flight updateFlight(int flight_id, Flight flight){
-        // Boolean originalBool = null;
-        if(flightDAO.getFlightById(flight_id).flight_id == flight.flight_id){
-            flightDAO.updateFlight(flight_id, flight);
-            return flightDAO.getFlightById(flight_id);
-        }
-        else{
+        // create a Flight variable 'selectFlight' assigned w/ values -- retrieve from existing flight by its ID
+        Flight selectedFlight = flightDAO.getFlightById(flight_id);
+
+        // if there are no such flight ...
+        if(selectedFlight == null){
             return null;
         }
+
+        // otw if there is a record/row of flight documented in DB
+        else{
+            // use dot notation to utilize flightDAO's .updateFlight() method
+            flightDAO.updateFlight(flight_id, flight);
+        }
+
+        // now if the record is successfully updated beforehand -- calling it by previous 'flight_id' should show updated record
+        return(flightDAO.getFlightById(flight_id));
+
+        // Boolean originalBool = null;
+        // if(flightDAO.getFlightById(flight_id).flight_id == flight.flight_id){
+        //     flightDAO.updateFlight(flight_id, flight);
+        //     return flightDAO.getFlightById(flight_id);
+        // }
+        // else{
+        //     return null;
+        // }
         // return originalBoolean;
     }
 
