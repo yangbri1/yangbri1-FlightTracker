@@ -121,6 +121,7 @@ public class FlightService {
      * @return all flights departing from departure_city and arriving at arrival_city.
      */
     public List<Flight> getAllFlightsFromCityToCity(String departure_city, String arrival_city) {
+        // call on .getAllFlightsFromCityToCity() method from FlightDAO class
         return flightDAO.getAllFlightsFromCityToCity(departure_city, arrival_city);
     }
 }
